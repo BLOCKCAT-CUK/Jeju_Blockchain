@@ -10,7 +10,7 @@ export default class CartTotals extends Component {
       cart,
       clearCart,
       buyGame,
-      investGame,
+      //investGame,
     } = this.props.value;
     const emptyCart = cart.length === 0 ? true : false;
     return (

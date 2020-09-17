@@ -44,7 +44,7 @@ export default class GameItem extends Component {
         </div>
         <div className="col-10 mx-auto col-lg-2 ">
           <div className=" cart-icon" onClick={() => removeItem(id)}>
-          <i class="far fa-tired"></i>
+          <i className="far fa-tired"></i>
           </div>
         </div>
       </div>

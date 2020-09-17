@@ -1,9 +1,16 @@
 import React, { Component } from "react";
 import { storeProducts, detailProduct } from "./data";
-import getWeb3 from "./utils/getWeb3";
+//import getWeb3 from "./utils/getWeb3";
 import IndianContract from "./contracts/Indian.json";
+import Caver from "caver-js";
 const ProductContext = React.createContext();
 
+const config = {
+  rpcURL: 'https://api.baobab.klaytn.net:8651'
+}
+
+//const cav = new Caver(config.rpcURL);
+//const Indian = new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS);
 
 class ProductProvider extends Component {
   state = {
@@ -16,30 +23,38 @@ class ProductProvider extends Component {
     cartTotal: 0,
     accounts: null,
     myGame: 0,
-    web3: null,
+    cav: null,
     contract: null
   };
-  componentDidMount = async() => {
+  componentDidMount = async () => {
     this.setProducts();
     try {
-      const web3 = await getWeb3();
-      const accounts = await web3.eth.getAccounts();
-      const networkId = await web3.eth.net.getId();
+      const cav = await new Caver(config.rpcURL);
+      console.log(cav);
+      //const accounts = await web3.eth.getAccounts();
+      const privateKey = '';
+      const walletInstance = cav.klay.accounts.privateKeyToAccount(privateKey);
+      const accounts = await cav.klay.accounts.wallet.add(walletInstance);
+      //console.log(accounts);
+      //const accounts = await cav.klay.accounts.wallet && cav.klay.accounts.wallet[0];
+      const networkId = await cav.klay.net.getId();
+      //console.log(networkId);
       const deployedNetwork = IndianContract.networks[networkId];
-      const instance = new web3.eth.Contract (
+      const instance = new cav.klay.Contract(
         IndianContract.abi,
         deployedNetwork && deployedNetwork.address,
       );
-      this.setState({ web3, accounts: accounts[0], contract: instance });
+      
+      this.setState({ cav, accounts: accounts.address, contract: instance });
       //this.updateMyGames();
+      console.log(this.state);
     } catch (error) {
       alert(
-        `Failed to load web3, accounts, or contract. Check console for details.`,
+        `Failed to load Caver, accounts, or contract. Check console for details.`,
       );
-      console.error(error); 
+      console.error(error);
     }
   }
-
   setProducts = () => {
     let products = [];
     storeProducts.forEach(item => {
@@ -76,7 +91,7 @@ class ProductProvider extends Component {
         cart: [...this.state.cart, product],
         detailProduct: { ...product },
         accounts: this.state.accounts,
-        web3: this.state.web3,
+        cav: this.state.cav,
         contract: this.state.contract
 
       };
@@ -156,22 +171,23 @@ class ProductProvider extends Component {
     );
   };
   buyGame = () => {
-    if(!this.state.contract) {
+    if (!this.state.contract) {
       alert('No Wallet Address!');
     }
+    console.log(this.state.accounts);
     this.state.contract.methods.buyGame().send({
       from: this.state.accounts,
-      value: this.state.web3.utils.toWei(this.state.cartTotal.toString(), 'ether'),
+      value: this.state.cav.utils.toWei(this.state.cartTotal.toString(), 'ether'),
       gas: 900000
     });
   };
   investGame = () => {
-    if(!this.state.contract) {
+    if (!this.state.contract) {
       alert('No Wallet Address!');
     }
     this.state.contract.methods.investGame().send({
       from: this.state.accounts,
-      value: this.state.web3.utils.toWei('5', 'ether'),
+      value: this.state.cav.utils.toWei('5', 'ether'),
       gas: 900000
     });
   }

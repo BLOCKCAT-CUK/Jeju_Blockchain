@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity >=0.4.24 <=0.5.6;
 
 contract Indian {
     mapping (address => uint16) myGame;
