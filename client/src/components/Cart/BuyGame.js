@@ -35,16 +35,6 @@ class BuyGame extends Component {
     } 
   }
 
-  buyGame() {
-    if(!this.state.contract) {
-      alert('No Wallet Address!');
-    }
-    this.state.contract.methods.buyGame().send({
-      from: this.state.accounts,
-      value: this.state.web3.utils.toWei('10', 'ether'),
-      gas: 900000
-    }); 
-  }
 
   // sellMyGame() {
   //   if(!this.state.contract) {

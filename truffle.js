@@ -1,6 +1,6 @@
 const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");
-const URL = 'https://api.baobab.klaytn.net:8651';
-const PRIVATE_KEY = '';
+const URL = 'https://api.baobab.klaytn.net:8651/';
+const PRIVATE_KEY = '0xb3d98ee179ab3d115f24ad25b8237bfe616c3306b53029272bd410e4eac23c40';
 const NETWORK_ID = '1001'
 const GASLIMIT = '3000000'
 

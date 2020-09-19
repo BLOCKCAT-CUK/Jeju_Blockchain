@@ -2,9 +2,26 @@ pragma solidity >=0.4.24 <=0.5.6;
 
 contract Indian {
     mapping (address => uint16) myGame;
+    address public owner;
 
-    function buyGame() payable external {
+    constructor() public {
+        owner = msg.sender;
+    }
+
+
+    function getBalance() public view returns (uint) {
+        return address(this).balance;
+    }
+
+    function deposit() payable external {
+        require(msg.sender == owner);
+    }
+
+    function buyGame(uint _gamePrice) payable external {
+        //require(getBalance() >= _gamePrice);
+        msg.sender.transfer(_gamePrice);
         myGame[msg.sender]++;
+        //return true;
     }
 
     function getMyGame() view external returns(uint16) {
@@ -19,4 +36,5 @@ contract Indian {
     function investGame() payable external {
         myGame[msg.sender]++;
     }
+
 }

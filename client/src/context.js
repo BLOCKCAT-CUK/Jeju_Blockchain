@@ -3,14 +3,14 @@ import { storeProducts, detailProduct } from "./data";
 //import getWeb3 from "./utils/getWeb3";
 import IndianContract from "./contracts/Indian.json";
 import Caver from "caver-js";
+import axios from "axios";
 const ProductContext = React.createContext();
 
 const config = {
-  rpcURL: 'https://api.baobab.klaytn.net:8651'
+  rpcURL: 'https://api.baobab.klaytn.net:8651/'
 }
 
-//const cav = new Caver(config.rpcURL);
-//const Indian = new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS);
+const cav = new Caver(config.rpcURL);
 
 class ProductProvider extends Component {
   state = {
@@ -22,32 +22,29 @@ class ProductProvider extends Component {
     cartSubTotal: 0,
     cartTotal: 0,
     accounts: null,
+    toaccount: null,
     myGame: 0,
     cav: null,
     contract: null
   };
   componentDidMount = async () => {
     this.setProducts();
+    this.getAllAccounts();
+    console.log(this.state);
     try {
-      const cav = await new Caver(config.rpcURL);
       console.log(cav);
-      //const accounts = await web3.eth.getAccounts();
-      const privateKey = '';
+      const privateKey = '0xb3d98ee179ab3d115f24ad25b8237bfe616c3306b53029272bd410e4eac23c40';
       const walletInstance = cav.klay.accounts.privateKeyToAccount(privateKey);
       const accounts = await cav.klay.accounts.wallet.add(walletInstance);
-      //console.log(accounts);
-      //const accounts = await cav.klay.accounts.wallet && cav.klay.accounts.wallet[0];
       const networkId = await cav.klay.net.getId();
-      //console.log(networkId);
       const deployedNetwork = IndianContract.networks[networkId];
       const instance = new cav.klay.Contract(
         IndianContract.abi,
         deployedNetwork && deployedNetwork.address,
       );
-      
       this.setState({ cav, accounts: accounts.address, contract: instance });
-      //this.updateMyGames();
       console.log(this.state);
+
     } catch (error) {
       alert(
         `Failed to load Caver, accounts, or contract. Check console for details.`,
@@ -65,6 +62,29 @@ class ProductProvider extends Component {
       return { products };
     }, this.checkCartItems);
   };
+
+  getAllAccounts = async () => {
+    let toaccount = null;
+    const option = {
+      method: 'GET',
+      url: 'http://localhost:5000/',
+      headers: {
+        'x-chain-id': '1001',
+        'Authorization': 'Basic S0FTS1E3TEhWSjQ1SDlNQzQ0MzJPRE41OlNwV1hDdllwck83VjI2MFNHMUlLMFVBMkFjY2FVMDNEVGhSWW0rU3Y='
+      }
+    }
+    var self = this;
+    axios(option)
+      .then(async function (response) {
+        //console.log(JSON.stringify(response.data.items[0]));
+        const account = await response.data.items[0].address;
+        console.log(account);
+        self.setState({ toaccount: account })
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
   getItem = id => {
     const product = this.state.products.find(item => item.id === id);
@@ -96,7 +116,6 @@ class ProductProvider extends Component {
 
       };
     }, this.addTotals);
-    console.log(this.state.products);
   };
   openModal = id => {
     const product = this.getItem(id);
@@ -110,12 +129,6 @@ class ProductProvider extends Component {
     });
   };
   getTotals = () => {
-    // const subTotal = this.state.cart
-    //   .map(item => item.total)
-    //   .reduce((acc, curr) => {
-    //     acc = acc + curr;
-    //     return acc;
-    //   }, 0);
     let subTotal = 0;
     this.state.cart.map(item => (subTotal += item.total));
     const total = subTotal;
@@ -134,7 +147,7 @@ class ProductProvider extends Component {
         };
       },
       () => {
-        console.log(this.state);
+        //(this.state);
       }
     );
   };
@@ -170,17 +183,24 @@ class ProductProvider extends Component {
       }
     );
   };
-  buyGame = () => {
+  buyGame = async () => {
     if (!this.state.contract) {
       alert('No Wallet Address!');
     }
     console.log(this.state.accounts);
-    this.state.contract.methods.buyGame().send({
+    const amount = this.state.cav.utils.toPeb(this.state.cartTotal.toString(), 'KLAY');
+    const vt = new this.state.cav.transaction.valueTransfer({
       from: this.state.accounts,
-      value: this.state.cav.utils.toWei(this.state.cartTotal.toString(), 'ether'),
-      gas: 900000
-    });
+      to: this.state.toaccount,
+      value: amount,
+      gas: 90000,
+      nonce: this.state.cav.rpc.klay.getTransactionCount(this.state.accounts, 'pending')
+    })
+    console.log(vt);
+    const sendTestKlayRecipt = await this.state.cav.rpc.klay.sendTransaction(vt);
+    console.log(sendTestKlayRecipt);
   };
+
   investGame = () => {
     if (!this.state.contract) {
       alert('No Wallet Address!');

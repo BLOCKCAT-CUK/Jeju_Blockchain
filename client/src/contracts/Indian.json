@@ -2,8 +2,56 @@
   "contractName": "Indian",
   "abi": [
     {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getBalance",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "constant": false,
       "inputs": [],
+      "name": "deposit",
+      "outputs": [],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_gamePrice",
+          "type": "uint256"
+        }
+      ],
       "name": "buyGame",
       "outputs": [],
       "payable": true,
@@ -48,20 +96,20 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b50610330806100206000396000f300608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806302056c8b1461006757806349cd2abf1461009a5780639ef2cece146100a4578063efa43c22146100c4575b600080fd5b34801561007357600080fd5b5061007c6100ce565b604051808261ffff1661ffff16815260200191505060405180910390f35b6100a2610122565b005b6100c260048036038101908080359060200190929190505050610195565b005b6100cc610291565b005b60008060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900461ffff16905090565b6000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600081819054906101000a900461ffff168092919060010191906101000a81548161ffff021916908361ffff16021790555050565b6000816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900461ffff1661ffff1602905060008060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548161ffff021916908361ffff1602179055503373ffffffffffffffffffffffffffffffffffffffff166108fc829081150290604051600060405180830381858888f1935050505015801561028c573d6000803e3d6000fd5b505050565b6000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600081819054906101000a900461ffff168092919060010191906101000a81548161ffff021916908361ffff160217905550505600a165627a7a72305820105d929cae5206cd64d267457579fba759fe08074e1d0545ddeb4b40fb3834d20029",
-  "deployedBytecode": "0x608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806302056c8b1461006757806349cd2abf1461009a5780639ef2cece146100a4578063efa43c22146100c4575b600080fd5b34801561007357600080fd5b5061007c6100ce565b604051808261ffff1661ffff16815260200191505060405180910390f35b6100a2610122565b005b6100c260048036038101908080359060200190929190505050610195565b005b6100cc610291565b005b60008060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900461ffff16905090565b6000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600081819054906101000a900461ffff168092919060010191906101000a81548161ffff021916908361ffff16021790555050565b6000816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900461ffff1661ffff1602905060008060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548161ffff021916908361ffff1602179055503373ffffffffffffffffffffffffffffffffffffffff166108fc829081150290604051600060405180830381858888f1935050505015801561028c573d6000803e3d6000fd5b505050565b6000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600081819054906101000a900461ffff168092919060010191906101000a81548161ffff021916908361ffff160217905550505600a165627a7a72305820105d929cae5206cd64d267457579fba759fe08074e1d0545ddeb4b40fb3834d20029",
-  "sourceMap": "35:511:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;35:511:0;;;;;;;",
-  "deployedSourceMap": "35:511:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;177:93;;8:9:-1;5:2;;;30:1;27;20:12;5:2;177:93:0;;;;;;;;;;;;;;;;;;;;;;;;;;;98:73;;;;;;276:187;;;;;;;;;;;;;;;;;;;;;;;;;;468:76;;;;;;177:93;220:6;245;:18;252:10;245:18;;;;;;;;;;;;;;;;;;;;;;;;;238:25;;177:93;:::o;98:73::-;144:6;:18;151:10;144:18;;;;;;;;;;;;;;;;:20;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;98:73::o;276:187::-;340:11;376:10;355:6;:18;362:10;355:18;;;;;;;;;;;;;;;;;;;;;;;;;:31;;;340:47;;418:1;397:6;:18;404:10;397:18;;;;;;;;;;;;;;;;:22;;;;;;;;;;;;;;;;;;429:10;:19;;:27;449:6;429:27;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;429:27:0;276:187;;:::o;468:76::-;517:6;:18;524:10;517:18;;;;;;;;;;;;;;;;:20;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;468:76::o",
-  "source": "pragma solidity >=0.4.24 <=0.5.6;\n\ncontract Indian {\n    mapping (address => uint16) myGame;\n\n    function buyGame() payable external {\n        myGame[msg.sender]++;\n    }\n\n    function getMyGame() view external returns(uint16) {\n        return myGame[msg.sender];\n    }\n\n    function sellMyGame(uint _gamePrice) payable external {\n        uint refund = (myGame[msg.sender] * _gamePrice);\n        myGame[msg.sender] = 0;\n        msg.sender.transfer(refund);\n    }\n    function investGame() payable external {\n        myGame[msg.sender]++;\n    }\n}",
+  "bytecode": "0x608060405234801561001057600080fd5b5033600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506104de806100616000396000f300608060405260043610610083576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806302056c8b1461008857806312065fe0146100bb5780638da5cb5b146100e65780639ef2cece1461013d578063d0e30db01461015d578063efa43c2214610167578063f776051714610171575b600080fd5b34801561009457600080fd5b5061009d610191565b604051808261ffff1661ffff16815260200191505060405180910390f35b3480156100c757600080fd5b506100d06101e5565b6040518082815260200191505060405180910390f35b3480156100f257600080fd5b506100fb610204565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b61015b6004803603810190808035906020019092919050505061022a565b005b610165610326565b005b61016f610384565b005b61018f600480360381019080803590602001909291905050506103f7565b005b60008060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900461ffff16905090565b60003073ffffffffffffffffffffffffffffffffffffffff1631905090565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900461ffff1661ffff1602905060008060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548161ffff021916908361ffff1602179055503373ffffffffffffffffffffffffffffffffffffffff166108fc829081150290604051600060405180830381858888f19350505050158015610321573d6000803e3d6000fd5b505050565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561038257600080fd5b565b6000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600081819054906101000a900461ffff168092919060010191906101000a81548161ffff021916908361ffff16021790555050565b3373ffffffffffffffffffffffffffffffffffffffff166108fc829081150290604051600060405180830381858888f1935050505015801561043d573d6000803e3d6000fd5b506000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600081819054906101000a900461ffff168092919060010191906101000a81548161ffff021916908361ffff16021790555050505600a165627a7a72305820c4384f8a0c0e773f1baea604b8dededdbd074c23bf8d990d41db7ab2ca7884710029",
+  "deployedBytecode": "0x608060405260043610610083576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806302056c8b1461008857806312065fe0146100bb5780638da5cb5b146100e65780639ef2cece1461013d578063d0e30db01461015d578063efa43c2214610167578063f776051714610171575b600080fd5b34801561009457600080fd5b5061009d610191565b604051808261ffff1661ffff16815260200191505060405180910390f35b3480156100c757600080fd5b506100d06101e5565b6040518082815260200191505060405180910390f35b3480156100f257600080fd5b506100fb610204565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b61015b6004803603810190808035906020019092919050505061022a565b005b610165610326565b005b61016f610384565b005b61018f600480360381019080803590602001909291905050506103f7565b005b60008060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900461ffff16905090565b60003073ffffffffffffffffffffffffffffffffffffffff1631905090565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900461ffff1661ffff1602905060008060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548161ffff021916908361ffff1602179055503373ffffffffffffffffffffffffffffffffffffffff166108fc829081150290604051600060405180830381858888f19350505050158015610321573d6000803e3d6000fd5b505050565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561038257600080fd5b565b6000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600081819054906101000a900461ffff168092919060010191906101000a81548161ffff021916908361ffff16021790555050565b3373ffffffffffffffffffffffffffffffffffffffff166108fc829081150290604051600060405180830381858888f1935050505015801561043d573d6000803e3d6000fd5b506000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600081819054906101000a900461ffff168092919060010191906101000a81548161ffff021916908361ffff16021790555050505600a165627a7a72305820c4384f8a0c0e773f1baea604b8dededdbd074c23bf8d990d41db7ab2ca7884710029",
+  "sourceMap": "35:914:0:-;;;124:56;8:9:-1;5:2;;;30:1;27;20:12;5:2;124:56:0;163:10;155:5;;:18;;;;;;;;;;;;;;;;;;35:914;;;;;;",
+  "deployedSourceMap": "35:914:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;579:93;;8:9:-1;5:2;;;30:1;27;20:12;5:2;579:93:0;;;;;;;;;;;;;;;;;;;;;;;;;;;187:94;;8:9:-1;5:2;;;30:1;27;20:12;5:2;187:94:0;;;;;;;;;;;;;;;;;;;;;;;97:20;;8:9:-1;5:2;;;30:1;27;20:12;5:2;97:20:0;;;;;;;;;;;;;;;;;;;;;;;;;;;678:187;;;;;;;;;;;;;;;;;;;;;;;;;;287:81;;;;;;870:76;;;;;;374:199;;;;;;;;;;;;;;;;;;;;;;;;;;579:93;622:6;647;:18;654:10;647:18;;;;;;;;;;;;;;;;;;;;;;;;;640:25;;579:93;:::o;187:94::-;230:4;261;253:21;;;246:28;;187:94;:::o;97:20::-;;;;;;;;;;;;;:::o;678:187::-;742:11;778:10;757:6;:18;764:10;757:18;;;;;;;;;;;;;;;;;;;;;;;;;:31;;;742:47;;820:1;799:6;:18;806:10;799:18;;;;;;;;;;;;;;;;:22;;;;;;;;;;;;;;;;;;831:10;:19;;:27;851:6;831:27;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;831:27:0;678:187;;:::o;287:81::-;355:5;;;;;;;;;;;341:19;;:10;:19;;;333:28;;;;;;;;287:81::o;870:76::-;919:6;:18;926:10;919:18;;;;;;;;;;;;;;;;:20;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;870:76::o;374:199::-;482:10;:19;;:31;502:10;482:31;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;482:31:0;523:6;:18;530:10;523:18;;;;;;;;;;;;;;;;:20;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;374:199;:::o",
+  "source": "pragma solidity >=0.4.24 <=0.5.6;\n\ncontract Indian {\n    mapping (address => uint16) myGame;\n    address public owner;\n\n    constructor() public {\n        owner = msg.sender;\n    }\n\n\n    function getBalance() public view returns (uint) {\n        return address(this).balance;\n    }\n\n    function deposit() payable external {\n        require(msg.sender == owner);\n    }\n\n    function buyGame(uint _gamePrice) payable external {\n        //require(getBalance() >= _gamePrice);\n        msg.sender.transfer(_gamePrice);\n        myGame[msg.sender]++;\n        //return true;\n    }\n\n    function getMyGame() view external returns(uint16) {\n        return myGame[msg.sender];\n    }\n\n    function sellMyGame(uint _gamePrice) payable external {\n        uint refund = (myGame[msg.sender] * _gamePrice);\n        myGame[msg.sender] = 0;\n        msg.sender.transfer(refund);\n    }\n    function investGame() payable external {\n        myGame[msg.sender]++;\n    }\n\n}",
   "sourcePath": "/Users/song-incheol/Indian/contracts/Indian.sol",
   "ast": {
     "absolutePath": "/Users/song-incheol/Indian/contracts/Indian.sol",
     "exportedSymbols": {
       "Indian": [
-        68
+        111
       ]
     },
-    "id": 69,
+    "id": 112,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -84,9 +132,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 68,
+        "id": 111,
         "linearizedBaseContracts": [
-          68
+          111
         ],
         "name": "Indian",
         "nodeType": "ContractDefinition",
@@ -96,7 +144,7 @@
             "id": 5,
             "name": "myGame",
             "nodeType": "VariableDeclaration",
-            "scope": 68,
+            "scope": 111,
             "src": "57:34:0",
             "stateVariable": true,
             "storageLocation": "default",
@@ -137,156 +185,76 @@
             "visibility": "internal"
           },
           {
+            "constant": false,
+            "id": 7,
+            "name": "owner",
+            "nodeType": "VariableDeclaration",
+            "scope": 111,
+            "src": "97:20:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 6,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "97:7:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
             "body": {
-              "id": 14,
+              "id": 15,
               "nodeType": "Block",
-              "src": "134:37:0",
+              "src": "145:35:0",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 12,
+                    "id": 13,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
-                    "nodeType": "UnaryOperation",
-                    "operator": "++",
-                    "prefix": false,
-                    "src": "144:20:0",
-                    "subExpression": {
+                    "leftHandSide": {
                       "argumentTypes": null,
-                      "baseExpression": {
-                        "argumentTypes": null,
-                        "id": 8,
-                        "name": "myGame",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 5,
-                        "src": "144:6:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_uint16_$",
-                          "typeString": "mapping(address => uint16)"
-                        }
-                      },
-                      "id": 11,
-                      "indexExpression": {
-                        "argumentTypes": null,
-                        "expression": {
-                          "argumentTypes": null,
-                          "id": 9,
-                          "name": "msg",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 140,
-                          "src": "151:3:0",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_magic_message",
-                            "typeString": "msg"
-                          }
-                        },
-                        "id": 10,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "memberName": "sender",
-                        "nodeType": "MemberAccess",
-                        "referencedDeclaration": null,
-                        "src": "151:10:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        }
-                      },
-                      "isConstant": false,
-                      "isLValue": true,
-                      "isPure": false,
-                      "lValueRequested": true,
-                      "nodeType": "IndexAccess",
-                      "src": "144:18:0",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_uint16",
-                        "typeString": "uint16"
-                      }
-                    },
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint16",
-                      "typeString": "uint16"
-                    }
-                  },
-                  "id": 13,
-                  "nodeType": "ExpressionStatement",
-                  "src": "144:20:0"
-                }
-              ]
-            },
-            "documentation": null,
-            "id": 15,
-            "implemented": true,
-            "isConstructor": false,
-            "isDeclaredConst": false,
-            "modifiers": [],
-            "name": "buyGame",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 6,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "114:2:0"
-            },
-            "payable": true,
-            "returnParameters": {
-              "id": 7,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "134:0:0"
-            },
-            "scope": 68,
-            "src": "98:73:0",
-            "stateMutability": "payable",
-            "superFunction": null,
-            "visibility": "external"
-          },
-          {
-            "body": {
-              "id": 25,
-              "nodeType": "Block",
-              "src": "228:42:0",
-              "statements": [
-                {
-                  "expression": {
-                    "argumentTypes": null,
-                    "baseExpression": {
-                      "argumentTypes": null,
-                      "id": 20,
-                      "name": "myGame",
+                      "id": 10,
+                      "name": "owner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5,
-                      "src": "245:6:0",
+                      "referencedDeclaration": 7,
+                      "src": "155:5:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_address_$_t_uint16_$",
-                        "typeString": "mapping(address => uint16)"
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
                       }
                     },
-                    "id": 23,
-                    "indexExpression": {
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 21,
+                        "id": 11,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 140,
-                        "src": "252:3:0",
+                        "referencedDeclaration": 126,
+                        "src": "163:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 22,
+                      "id": 12,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -294,337 +262,344 @@
                       "memberName": "sender",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "252:10:0",
+                      "src": "163:10:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "isConstant": false,
-                    "isLValue": true,
-                    "isPure": false,
-                    "lValueRequested": false,
-                    "nodeType": "IndexAccess",
-                    "src": "245:18:0",
+                    "src": "155:18:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_uint16",
-                      "typeString": "uint16"
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
                     }
                   },
-                  "functionReturnParameters": 19,
-                  "id": 24,
-                  "nodeType": "Return",
-                  "src": "238:25:0"
+                  "id": 14,
+                  "nodeType": "ExpressionStatement",
+                  "src": "155:18:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 26,
+            "id": 16,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 8,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "135:2:0"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 9,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "145:0:0"
+            },
+            "scope": 111,
+            "src": "124:56:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 26,
+              "nodeType": "Block",
+              "src": "236:45:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 22,
+                          "name": "this",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 139,
+                          "src": "261:4:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_Indian_$111",
+                            "typeString": "contract Indian"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_contract$_Indian_$111",
+                            "typeString": "contract Indian"
+                          }
+                        ],
+                        "id": 21,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "nodeType": "ElementaryTypeNameExpression",
+                        "src": "253:7:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_address_$",
+                          "typeString": "type(address)"
+                        },
+                        "typeName": "address"
+                      },
+                      "id": 23,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "253:13:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 24,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "balance",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": null,
+                    "src": "253:21:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 20,
+                  "id": 25,
+                  "nodeType": "Return",
+                  "src": "246:28:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 27,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
             "modifiers": [],
-            "name": "getMyGame",
+            "name": "getBalance",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 16,
+              "id": 17,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "195:2:0"
+              "src": "206:2:0"
             },
             "payable": false,
             "returnParameters": {
-              "id": 19,
+              "id": 20,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 18,
+                  "id": 19,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 26,
-                  "src": "220:6:0",
+                  "scope": 27,
+                  "src": "230:4:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_uint16",
-                    "typeString": "uint16"
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 17,
-                    "name": "uint16",
+                    "id": 18,
+                    "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "220:6:0",
+                    "src": "230:4:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_uint16",
-                      "typeString": "uint16"
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
                     }
                   },
                   "value": null,
                   "visibility": "internal"
                 }
               ],
-              "src": "219:8:0"
+              "src": "229:6:0"
             },
-            "scope": 68,
-            "src": "177:93:0",
+            "scope": 111,
+            "src": "187:94:0",
             "stateMutability": "view",
             "superFunction": null,
-            "visibility": "external"
+            "visibility": "public"
           },
           {
             "body": {
-              "id": 56,
+              "id": 37,
               "nodeType": "Block",
-              "src": "330:133:0",
+              "src": "323:45:0",
               "statements": [
-                {
-                  "assignments": [
-                    32
-                  ],
-                  "declarations": [
-                    {
-                      "constant": false,
-                      "id": 32,
-                      "name": "refund",
-                      "nodeType": "VariableDeclaration",
-                      "scope": 57,
-                      "src": "340:11:0",
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_uint256",
-                        "typeString": "uint256"
-                      },
-                      "typeName": {
-                        "id": 31,
-                        "name": "uint",
-                        "nodeType": "ElementaryTypeName",
-                        "src": "340:4:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
-                        }
-                      },
-                      "value": null,
-                      "visibility": "internal"
-                    }
-                  ],
-                  "id": 40,
-                  "initialValue": {
-                    "argumentTypes": null,
-                    "components": [
-                      {
-                        "argumentTypes": null,
-                        "commonType": {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
-                        },
-                        "id": 38,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "leftExpression": {
-                          "argumentTypes": null,
-                          "baseExpression": {
-                            "argumentTypes": null,
-                            "id": 33,
-                            "name": "myGame",
-                            "nodeType": "Identifier",
-                            "overloadedDeclarations": [],
-                            "referencedDeclaration": 5,
-                            "src": "355:6:0",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_uint16_$",
-                              "typeString": "mapping(address => uint16)"
-                            }
-                          },
-                          "id": 36,
-                          "indexExpression": {
-                            "argumentTypes": null,
-                            "expression": {
-                              "argumentTypes": null,
-                              "id": 34,
-                              "name": "msg",
-                              "nodeType": "Identifier",
-                              "overloadedDeclarations": [],
-                              "referencedDeclaration": 140,
-                              "src": "362:3:0",
-                              "typeDescriptions": {
-                                "typeIdentifier": "t_magic_message",
-                                "typeString": "msg"
-                              }
-                            },
-                            "id": 35,
-                            "isConstant": false,
-                            "isLValue": false,
-                            "isPure": false,
-                            "lValueRequested": false,
-                            "memberName": "sender",
-                            "nodeType": "MemberAccess",
-                            "referencedDeclaration": null,
-                            "src": "362:10:0",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_address",
-                              "typeString": "address"
-                            }
-                          },
-                          "isConstant": false,
-                          "isLValue": true,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "nodeType": "IndexAccess",
-                          "src": "355:18:0",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_uint16",
-                            "typeString": "uint16"
-                          }
-                        },
-                        "nodeType": "BinaryOperation",
-                        "operator": "*",
-                        "rightExpression": {
-                          "argumentTypes": null,
-                          "id": 37,
-                          "name": "_gamePrice",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 28,
-                          "src": "376:10:0",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_uint256",
-                            "typeString": "uint256"
-                          }
-                        },
-                        "src": "355:31:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
-                        }
-                      }
-                    ],
-                    "id": 39,
-                    "isConstant": false,
-                    "isInlineArray": false,
-                    "isLValue": false,
-                    "isPure": false,
-                    "lValueRequested": false,
-                    "nodeType": "TupleExpression",
-                    "src": "354:33:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "nodeType": "VariableDeclarationStatement",
-                  "src": "340:47:0"
-                },
-                {
-                  "expression": {
-                    "argumentTypes": null,
-                    "id": 46,
-                    "isConstant": false,
-                    "isLValue": false,
-                    "isPure": false,
-                    "lValueRequested": false,
-                    "leftHandSide": {
-                      "argumentTypes": null,
-                      "baseExpression": {
-                        "argumentTypes": null,
-                        "id": 41,
-                        "name": "myGame",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 5,
-                        "src": "397:6:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_uint16_$",
-                          "typeString": "mapping(address => uint16)"
-                        }
-                      },
-                      "id": 44,
-                      "indexExpression": {
-                        "argumentTypes": null,
-                        "expression": {
-                          "argumentTypes": null,
-                          "id": 42,
-                          "name": "msg",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 140,
-                          "src": "404:3:0",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_magic_message",
-                            "typeString": "msg"
-                          }
-                        },
-                        "id": 43,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "memberName": "sender",
-                        "nodeType": "MemberAccess",
-                        "referencedDeclaration": null,
-                        "src": "404:10:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        }
-                      },
-                      "isConstant": false,
-                      "isLValue": true,
-                      "isPure": false,
-                      "lValueRequested": true,
-                      "nodeType": "IndexAccess",
-                      "src": "397:18:0",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_uint16",
-                        "typeString": "uint16"
-                      }
-                    },
-                    "nodeType": "Assignment",
-                    "operator": "=",
-                    "rightHandSide": {
-                      "argumentTypes": null,
-                      "hexValue": "30",
-                      "id": 45,
-                      "isConstant": false,
-                      "isLValue": false,
-                      "isPure": true,
-                      "kind": "number",
-                      "lValueRequested": false,
-                      "nodeType": "Literal",
-                      "src": "418:1:0",
-                      "subdenomination": null,
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_rational_0_by_1",
-                        "typeString": "int_const 0"
-                      },
-                      "value": "0"
-                    },
-                    "src": "397:22:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint16",
-                      "typeString": "uint16"
-                    }
-                  },
-                  "id": 47,
-                  "nodeType": "ExpressionStatement",
-                  "src": "397:22:0"
-                },
                 {
                   "expression": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 53,
-                        "name": "refund",
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 34,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 31,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 126,
+                            "src": "341:3:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 32,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "341:10:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "id": 33,
+                          "name": "owner",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 7,
+                          "src": "355:5:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "341:19:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 30,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        129,
+                        130
+                      ],
+                      "referencedDeclaration": 129,
+                      "src": "333:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 35,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "333:28:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 36,
+                  "nodeType": "ExpressionStatement",
+                  "src": "333:28:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 38,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "deposit",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 28,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "303:2:0"
+            },
+            "payable": true,
+            "returnParameters": {
+              "id": 29,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "323:0:0"
+            },
+            "scope": 111,
+            "src": "287:81:0",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 57,
+              "nodeType": "Block",
+              "src": "425:148:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 48,
+                        "name": "_gamePrice",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 32,
-                        "src": "449:6:0",
+                        "referencedDeclaration": 40,
+                        "src": "502:10:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -642,18 +617,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 48,
+                          "id": 43,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 140,
-                          "src": "429:3:0",
+                          "referencedDeclaration": 126,
+                          "src": "482:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 51,
+                        "id": 46,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -661,13 +636,13 @@
                         "memberName": "sender",
                         "nodeType": "MemberAccess",
                         "referencedDeclaration": null,
-                        "src": "429:10:0",
+                        "src": "482:10:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         }
                       },
-                      "id": 52,
+                      "id": 47,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -675,13 +650,13 @@
                       "memberName": "transfer",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "429:19:0",
+                      "src": "482:19:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_transfer_nonpayable$_t_uint256_$returns$__$",
                         "typeString": "function (uint256)"
                       }
                     },
-                    "id": 54,
+                    "id": 49,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -689,82 +664,20 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "429:27:0",
+                    "src": "482:31:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 55,
+                  "id": 50,
                   "nodeType": "ExpressionStatement",
-                  "src": "429:27:0"
-                }
-              ]
-            },
-            "documentation": null,
-            "id": 57,
-            "implemented": true,
-            "isConstructor": false,
-            "isDeclaredConst": false,
-            "modifiers": [],
-            "name": "sellMyGame",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 29,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 28,
-                  "name": "_gamePrice",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 57,
-                  "src": "296:15:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 27,
-                    "name": "uint",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "296:4:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
-              ],
-              "src": "295:17:0"
-            },
-            "payable": true,
-            "returnParameters": {
-              "id": 30,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "330:0:0"
-            },
-            "scope": 68,
-            "src": "276:187:0",
-            "stateMutability": "payable",
-            "superFunction": null,
-            "visibility": "external"
-          },
-          {
-            "body": {
-              "id": 66,
-              "nodeType": "Block",
-              "src": "507:37:0",
-              "statements": [
+                  "src": "482:31:0"
+                },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 64,
+                    "id": 55,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -772,39 +685,39 @@
                     "nodeType": "UnaryOperation",
                     "operator": "++",
                     "prefix": false,
-                    "src": "517:20:0",
+                    "src": "523:20:0",
                     "subExpression": {
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 60,
+                        "id": 51,
                         "name": "myGame",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 5,
-                        "src": "517:6:0",
+                        "src": "523:6:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint16_$",
                           "typeString": "mapping(address => uint16)"
                         }
                       },
-                      "id": 63,
+                      "id": 54,
                       "indexExpression": {
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 61,
+                          "id": 52,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 140,
-                          "src": "524:3:0",
+                          "referencedDeclaration": 126,
+                          "src": "530:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 62,
+                        "id": 53,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -812,7 +725,7 @@
                         "memberName": "sender",
                         "nodeType": "MemberAccess",
                         "referencedDeclaration": null,
-                        "src": "524:10:0",
+                        "src": "530:10:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -823,7 +736,7 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "517:18:0",
+                      "src": "523:18:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint16",
                         "typeString": "uint16"
@@ -834,14 +747,660 @@
                       "typeString": "uint16"
                     }
                   },
-                  "id": 65,
+                  "id": 56,
                   "nodeType": "ExpressionStatement",
-                  "src": "517:20:0"
+                  "src": "523:20:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 67,
+            "id": 58,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "buyGame",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 41,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 40,
+                  "name": "_gamePrice",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 58,
+                  "src": "391:15:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 39,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "391:4:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "390:17:0"
+            },
+            "payable": true,
+            "returnParameters": {
+              "id": 42,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "425:0:0"
+            },
+            "scope": 111,
+            "src": "374:199:0",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 68,
+              "nodeType": "Block",
+              "src": "630:42:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 63,
+                      "name": "myGame",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 5,
+                      "src": "647:6:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_address_$_t_uint16_$",
+                        "typeString": "mapping(address => uint16)"
+                      }
+                    },
+                    "id": 66,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 64,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 126,
+                        "src": "654:3:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 65,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "654:10:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "647:18:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint16",
+                      "typeString": "uint16"
+                    }
+                  },
+                  "functionReturnParameters": 62,
+                  "id": 67,
+                  "nodeType": "Return",
+                  "src": "640:25:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 69,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getMyGame",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 59,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "597:2:0"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 62,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 61,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 69,
+                  "src": "622:6:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint16",
+                    "typeString": "uint16"
+                  },
+                  "typeName": {
+                    "id": 60,
+                    "name": "uint16",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "622:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint16",
+                      "typeString": "uint16"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "621:8:0"
+            },
+            "scope": 111,
+            "src": "579:93:0",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 99,
+              "nodeType": "Block",
+              "src": "732:133:0",
+              "statements": [
+                {
+                  "assignments": [
+                    75
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 75,
+                      "name": "refund",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 100,
+                      "src": "742:11:0",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 74,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "742:4:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 83,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 81,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 76,
+                            "name": "myGame",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 5,
+                            "src": "757:6:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_address_$_t_uint16_$",
+                              "typeString": "mapping(address => uint16)"
+                            }
+                          },
+                          "id": 79,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 77,
+                              "name": "msg",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 126,
+                              "src": "764:3:0",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_message",
+                                "typeString": "msg"
+                              }
+                            },
+                            "id": 78,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "sender",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "764:10:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "757:18:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint16",
+                            "typeString": "uint16"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "*",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "id": 80,
+                          "name": "_gamePrice",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 71,
+                          "src": "778:10:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "src": "757:31:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "id": 82,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "756:33:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "742:47:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 89,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 84,
+                        "name": "myGame",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 5,
+                        "src": "799:6:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_uint16_$",
+                          "typeString": "mapping(address => uint16)"
+                        }
+                      },
+                      "id": 87,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 85,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 126,
+                          "src": "806:3:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 86,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "806:10:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "799:18:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint16",
+                        "typeString": "uint16"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "30",
+                      "id": 88,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "820:1:0",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "799:22:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint16",
+                      "typeString": "uint16"
+                    }
+                  },
+                  "id": 90,
+                  "nodeType": "ExpressionStatement",
+                  "src": "799:22:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 96,
+                        "name": "refund",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 75,
+                        "src": "851:6:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 91,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 126,
+                          "src": "831:3:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 94,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "831:10:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "id": 95,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "transfer",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "831:19:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_transfer_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 97,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "831:27:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 98,
+                  "nodeType": "ExpressionStatement",
+                  "src": "831:27:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 100,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "sellMyGame",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 72,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 71,
+                  "name": "_gamePrice",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 100,
+                  "src": "698:15:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 70,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "698:4:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "697:17:0"
+            },
+            "payable": true,
+            "returnParameters": {
+              "id": 73,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "732:0:0"
+            },
+            "scope": 111,
+            "src": "678:187:0",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 109,
+              "nodeType": "Block",
+              "src": "909:37:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 107,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "++",
+                    "prefix": false,
+                    "src": "919:20:0",
+                    "subExpression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 103,
+                        "name": "myGame",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 5,
+                        "src": "919:6:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_uint16_$",
+                          "typeString": "mapping(address => uint16)"
+                        }
+                      },
+                      "id": 106,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 104,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 126,
+                          "src": "926:3:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 105,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "926:10:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "919:18:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint16",
+                        "typeString": "uint16"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint16",
+                      "typeString": "uint16"
+                    }
+                  },
+                  "id": 108,
+                  "nodeType": "ExpressionStatement",
+                  "src": "919:20:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 110,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -849,39 +1408,39 @@
             "name": "investGame",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 58,
+              "id": 101,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "487:2:0"
+              "src": "889:2:0"
             },
             "payable": true,
             "returnParameters": {
-              "id": 59,
+              "id": 102,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "507:0:0"
+              "src": "909:0:0"
             },
-            "scope": 68,
-            "src": "468:76:0",
+            "scope": 111,
+            "src": "870:76:0",
             "stateMutability": "payable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 69,
-        "src": "35:511:0"
+        "scope": 112,
+        "src": "35:914:0"
       }
     ],
-    "src": "0:546:0"
+    "src": "0:949:0"
   },
   "legacyAST": {
     "absolutePath": "/Users/song-incheol/Indian/contracts/Indian.sol",
     "exportedSymbols": {
       "Indian": [
-        68
+        111
       ]
     },
-    "id": 69,
+    "id": 112,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -904,9 +1463,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 68,
+        "id": 111,
         "linearizedBaseContracts": [
-          68
+          111
         ],
         "name": "Indian",
         "nodeType": "ContractDefinition",
@@ -916,7 +1475,7 @@
             "id": 5,
             "name": "myGame",
             "nodeType": "VariableDeclaration",
-            "scope": 68,
+            "scope": 111,
             "src": "57:34:0",
             "stateVariable": true,
             "storageLocation": "default",
@@ -957,156 +1516,76 @@
             "visibility": "internal"
           },
           {
+            "constant": false,
+            "id": 7,
+            "name": "owner",
+            "nodeType": "VariableDeclaration",
+            "scope": 111,
+            "src": "97:20:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 6,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "97:7:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
             "body": {
-              "id": 14,
+              "id": 15,
               "nodeType": "Block",
-              "src": "134:37:0",
+              "src": "145:35:0",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 12,
+                    "id": 13,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
-                    "nodeType": "UnaryOperation",
-                    "operator": "++",
-                    "prefix": false,
-                    "src": "144:20:0",
-                    "subExpression": {
+                    "leftHandSide": {
                       "argumentTypes": null,
-                      "baseExpression": {
-                        "argumentTypes": null,
-                        "id": 8,
-                        "name": "myGame",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 5,
-                        "src": "144:6:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_uint16_$",
-                          "typeString": "mapping(address => uint16)"
-                        }
-                      },
-                      "id": 11,
-                      "indexExpression": {
-                        "argumentTypes": null,
-                        "expression": {
-                          "argumentTypes": null,
-                          "id": 9,
-                          "name": "msg",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 140,
-                          "src": "151:3:0",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_magic_message",
-                            "typeString": "msg"
-                          }
-                        },
-                        "id": 10,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "memberName": "sender",
-                        "nodeType": "MemberAccess",
-                        "referencedDeclaration": null,
-                        "src": "151:10:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        }
-                      },
-                      "isConstant": false,
-                      "isLValue": true,
-                      "isPure": false,
-                      "lValueRequested": true,
-                      "nodeType": "IndexAccess",
-                      "src": "144:18:0",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_uint16",
-                        "typeString": "uint16"
-                      }
-                    },
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint16",
-                      "typeString": "uint16"
-                    }
-                  },
-                  "id": 13,
-                  "nodeType": "ExpressionStatement",
-                  "src": "144:20:0"
-                }
-              ]
-            },
-            "documentation": null,
-            "id": 15,
-            "implemented": true,
-            "isConstructor": false,
-            "isDeclaredConst": false,
-            "modifiers": [],
-            "name": "buyGame",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 6,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "114:2:0"
-            },
-            "payable": true,
-            "returnParameters": {
-              "id": 7,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "134:0:0"
-            },
-            "scope": 68,
-            "src": "98:73:0",
-            "stateMutability": "payable",
-            "superFunction": null,
-            "visibility": "external"
-          },
-          {
-            "body": {
-              "id": 25,
-              "nodeType": "Block",
-              "src": "228:42:0",
-              "statements": [
-                {
-                  "expression": {
-                    "argumentTypes": null,
-                    "baseExpression": {
-                      "argumentTypes": null,
-                      "id": 20,
-                      "name": "myGame",
+                      "id": 10,
+                      "name": "owner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5,
-                      "src": "245:6:0",
+                      "referencedDeclaration": 7,
+                      "src": "155:5:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_address_$_t_uint16_$",
-                        "typeString": "mapping(address => uint16)"
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
                       }
                     },
-                    "id": 23,
-                    "indexExpression": {
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 21,
+                        "id": 11,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 140,
-                        "src": "252:3:0",
+                        "referencedDeclaration": 126,
+                        "src": "163:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 22,
+                      "id": 12,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1114,337 +1593,344 @@
                       "memberName": "sender",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "252:10:0",
+                      "src": "163:10:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "isConstant": false,
-                    "isLValue": true,
-                    "isPure": false,
-                    "lValueRequested": false,
-                    "nodeType": "IndexAccess",
-                    "src": "245:18:0",
+                    "src": "155:18:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_uint16",
-                      "typeString": "uint16"
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
                     }
                   },
-                  "functionReturnParameters": 19,
-                  "id": 24,
-                  "nodeType": "Return",
-                  "src": "238:25:0"
+                  "id": 14,
+                  "nodeType": "ExpressionStatement",
+                  "src": "155:18:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 26,
+            "id": 16,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 8,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "135:2:0"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 9,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "145:0:0"
+            },
+            "scope": 111,
+            "src": "124:56:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 26,
+              "nodeType": "Block",
+              "src": "236:45:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 22,
+                          "name": "this",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 139,
+                          "src": "261:4:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_Indian_$111",
+                            "typeString": "contract Indian"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_contract$_Indian_$111",
+                            "typeString": "contract Indian"
+                          }
+                        ],
+                        "id": 21,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "nodeType": "ElementaryTypeNameExpression",
+                        "src": "253:7:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_address_$",
+                          "typeString": "type(address)"
+                        },
+                        "typeName": "address"
+                      },
+                      "id": 23,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "253:13:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 24,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "balance",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": null,
+                    "src": "253:21:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 20,
+                  "id": 25,
+                  "nodeType": "Return",
+                  "src": "246:28:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 27,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
             "modifiers": [],
-            "name": "getMyGame",
+            "name": "getBalance",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 16,
+              "id": 17,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "195:2:0"
+              "src": "206:2:0"
             },
             "payable": false,
             "returnParameters": {
-              "id": 19,
+              "id": 20,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 18,
+                  "id": 19,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 26,
-                  "src": "220:6:0",
+                  "scope": 27,
+                  "src": "230:4:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_uint16",
-                    "typeString": "uint16"
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 17,
-                    "name": "uint16",
+                    "id": 18,
+                    "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "220:6:0",
+                    "src": "230:4:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_uint16",
-                      "typeString": "uint16"
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
                     }
                   },
                   "value": null,
                   "visibility": "internal"
                 }
               ],
-              "src": "219:8:0"
+              "src": "229:6:0"
             },
-            "scope": 68,
-            "src": "177:93:0",
+            "scope": 111,
+            "src": "187:94:0",
             "stateMutability": "view",
             "superFunction": null,
-            "visibility": "external"
+            "visibility": "public"
           },
           {
             "body": {
-              "id": 56,
+              "id": 37,
               "nodeType": "Block",
-              "src": "330:133:0",
+              "src": "323:45:0",
               "statements": [
-                {
-                  "assignments": [
-                    32
-                  ],
-                  "declarations": [
-                    {
-                      "constant": false,
-                      "id": 32,
-                      "name": "refund",
-                      "nodeType": "VariableDeclaration",
-                      "scope": 57,
-                      "src": "340:11:0",
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_uint256",
-                        "typeString": "uint256"
-                      },
-                      "typeName": {
-                        "id": 31,
-                        "name": "uint",
-                        "nodeType": "ElementaryTypeName",
-                        "src": "340:4:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
-                        }
-                      },
-                      "value": null,
-                      "visibility": "internal"
-                    }
-                  ],
-                  "id": 40,
-                  "initialValue": {
-                    "argumentTypes": null,
-                    "components": [
-                      {
-                        "argumentTypes": null,
-                        "commonType": {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
-                        },
-                        "id": 38,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "leftExpression": {
-                          "argumentTypes": null,
-                          "baseExpression": {
-                            "argumentTypes": null,
-                            "id": 33,
-                            "name": "myGame",
-                            "nodeType": "Identifier",
-                            "overloadedDeclarations": [],
-                            "referencedDeclaration": 5,
-                            "src": "355:6:0",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_uint16_$",
-                              "typeString": "mapping(address => uint16)"
-                            }
-                          },
-                          "id": 36,
-                          "indexExpression": {
-                            "argumentTypes": null,
-                            "expression": {
-                              "argumentTypes": null,
-                              "id": 34,
-                              "name": "msg",
-                              "nodeType": "Identifier",
-                              "overloadedDeclarations": [],
-                              "referencedDeclaration": 140,
-                              "src": "362:3:0",
-                              "typeDescriptions": {
-                                "typeIdentifier": "t_magic_message",
-                                "typeString": "msg"
-                              }
-                            },
-                            "id": 35,
-                            "isConstant": false,
-                            "isLValue": false,
-                            "isPure": false,
-                            "lValueRequested": false,
-                            "memberName": "sender",
-                            "nodeType": "MemberAccess",
-                            "referencedDeclaration": null,
-                            "src": "362:10:0",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_address",
-                              "typeString": "address"
-                            }
-                          },
-                          "isConstant": false,
-                          "isLValue": true,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "nodeType": "IndexAccess",
-                          "src": "355:18:0",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_uint16",
-                            "typeString": "uint16"
-                          }
-                        },
-                        "nodeType": "BinaryOperation",
-                        "operator": "*",
-                        "rightExpression": {
-                          "argumentTypes": null,
-                          "id": 37,
-                          "name": "_gamePrice",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 28,
-                          "src": "376:10:0",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_uint256",
-                            "typeString": "uint256"
-                          }
-                        },
-                        "src": "355:31:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
-                        }
-                      }
-                    ],
-                    "id": 39,
-                    "isConstant": false,
-                    "isInlineArray": false,
-                    "isLValue": false,
-                    "isPure": false,
-                    "lValueRequested": false,
-                    "nodeType": "TupleExpression",
-                    "src": "354:33:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "nodeType": "VariableDeclarationStatement",
-                  "src": "340:47:0"
-                },
-                {
-                  "expression": {
-                    "argumentTypes": null,
-                    "id": 46,
-                    "isConstant": false,
-                    "isLValue": false,
-                    "isPure": false,
-                    "lValueRequested": false,
-                    "leftHandSide": {
-                      "argumentTypes": null,
-                      "baseExpression": {
-                        "argumentTypes": null,
-                        "id": 41,
-                        "name": "myGame",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 5,
-                        "src": "397:6:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_uint16_$",
-                          "typeString": "mapping(address => uint16)"
-                        }
-                      },
-                      "id": 44,
-                      "indexExpression": {
-                        "argumentTypes": null,
-                        "expression": {
-                          "argumentTypes": null,
-                          "id": 42,
-                          "name": "msg",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 140,
-                          "src": "404:3:0",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_magic_message",
-                            "typeString": "msg"
-                          }
-                        },
-                        "id": 43,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "memberName": "sender",
-                        "nodeType": "MemberAccess",
-                        "referencedDeclaration": null,
-                        "src": "404:10:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        }
-                      },
-                      "isConstant": false,
-                      "isLValue": true,
-                      "isPure": false,
-                      "lValueRequested": true,
-                      "nodeType": "IndexAccess",
-                      "src": "397:18:0",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_uint16",
-                        "typeString": "uint16"
-                      }
-                    },
-                    "nodeType": "Assignment",
-                    "operator": "=",
-                    "rightHandSide": {
-                      "argumentTypes": null,
-                      "hexValue": "30",
-                      "id": 45,
-                      "isConstant": false,
-                      "isLValue": false,
-                      "isPure": true,
-                      "kind": "number",
-                      "lValueRequested": false,
-                      "nodeType": "Literal",
-                      "src": "418:1:0",
-                      "subdenomination": null,
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_rational_0_by_1",
-                        "typeString": "int_const 0"
-                      },
-                      "value": "0"
-                    },
-                    "src": "397:22:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint16",
-                      "typeString": "uint16"
-                    }
-                  },
-                  "id": 47,
-                  "nodeType": "ExpressionStatement",
-                  "src": "397:22:0"
-                },
                 {
                   "expression": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 53,
-                        "name": "refund",
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 34,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 31,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 126,
+                            "src": "341:3:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 32,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "341:10:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "id": 33,
+                          "name": "owner",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 7,
+                          "src": "355:5:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "341:19:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 30,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        129,
+                        130
+                      ],
+                      "referencedDeclaration": 129,
+                      "src": "333:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 35,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "333:28:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 36,
+                  "nodeType": "ExpressionStatement",
+                  "src": "333:28:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 38,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "deposit",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 28,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "303:2:0"
+            },
+            "payable": true,
+            "returnParameters": {
+              "id": 29,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "323:0:0"
+            },
+            "scope": 111,
+            "src": "287:81:0",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 57,
+              "nodeType": "Block",
+              "src": "425:148:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 48,
+                        "name": "_gamePrice",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 32,
-                        "src": "449:6:0",
+                        "referencedDeclaration": 40,
+                        "src": "502:10:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1462,18 +1948,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 48,
+                          "id": 43,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 140,
-                          "src": "429:3:0",
+                          "referencedDeclaration": 126,
+                          "src": "482:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 51,
+                        "id": 46,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1481,13 +1967,13 @@
                         "memberName": "sender",
                         "nodeType": "MemberAccess",
                         "referencedDeclaration": null,
-                        "src": "429:10:0",
+                        "src": "482:10:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         }
                       },
-                      "id": 52,
+                      "id": 47,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1495,13 +1981,13 @@
                       "memberName": "transfer",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "429:19:0",
+                      "src": "482:19:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_transfer_nonpayable$_t_uint256_$returns$__$",
                         "typeString": "function (uint256)"
                       }
                     },
-                    "id": 54,
+                    "id": 49,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1509,82 +1995,20 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "429:27:0",
+                    "src": "482:31:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 55,
+                  "id": 50,
                   "nodeType": "ExpressionStatement",
-                  "src": "429:27:0"
-                }
-              ]
-            },
-            "documentation": null,
-            "id": 57,
-            "implemented": true,
-            "isConstructor": false,
-            "isDeclaredConst": false,
-            "modifiers": [],
-            "name": "sellMyGame",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 29,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 28,
-                  "name": "_gamePrice",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 57,
-                  "src": "296:15:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 27,
-                    "name": "uint",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "296:4:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
-              ],
-              "src": "295:17:0"
-            },
-            "payable": true,
-            "returnParameters": {
-              "id": 30,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "330:0:0"
-            },
-            "scope": 68,
-            "src": "276:187:0",
-            "stateMutability": "payable",
-            "superFunction": null,
-            "visibility": "external"
-          },
-          {
-            "body": {
-              "id": 66,
-              "nodeType": "Block",
-              "src": "507:37:0",
-              "statements": [
+                  "src": "482:31:0"
+                },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 64,
+                    "id": 55,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1592,39 +2016,39 @@
                     "nodeType": "UnaryOperation",
                     "operator": "++",
                     "prefix": false,
-                    "src": "517:20:0",
+                    "src": "523:20:0",
                     "subExpression": {
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 60,
+                        "id": 51,
                         "name": "myGame",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 5,
-                        "src": "517:6:0",
+                        "src": "523:6:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint16_$",
                           "typeString": "mapping(address => uint16)"
                         }
                       },
-                      "id": 63,
+                      "id": 54,
                       "indexExpression": {
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 61,
+                          "id": 52,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 140,
-                          "src": "524:3:0",
+                          "referencedDeclaration": 126,
+                          "src": "530:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 62,
+                        "id": 53,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1632,7 +2056,7 @@
                         "memberName": "sender",
                         "nodeType": "MemberAccess",
                         "referencedDeclaration": null,
-                        "src": "524:10:0",
+                        "src": "530:10:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1643,7 +2067,7 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "517:18:0",
+                      "src": "523:18:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint16",
                         "typeString": "uint16"
@@ -1654,14 +2078,660 @@
                       "typeString": "uint16"
                     }
                   },
-                  "id": 65,
+                  "id": 56,
                   "nodeType": "ExpressionStatement",
-                  "src": "517:20:0"
+                  "src": "523:20:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 67,
+            "id": 58,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "buyGame",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 41,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 40,
+                  "name": "_gamePrice",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 58,
+                  "src": "391:15:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 39,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "391:4:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "390:17:0"
+            },
+            "payable": true,
+            "returnParameters": {
+              "id": 42,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "425:0:0"
+            },
+            "scope": 111,
+            "src": "374:199:0",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 68,
+              "nodeType": "Block",
+              "src": "630:42:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 63,
+                      "name": "myGame",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 5,
+                      "src": "647:6:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_address_$_t_uint16_$",
+                        "typeString": "mapping(address => uint16)"
+                      }
+                    },
+                    "id": 66,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 64,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 126,
+                        "src": "654:3:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 65,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "654:10:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "647:18:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint16",
+                      "typeString": "uint16"
+                    }
+                  },
+                  "functionReturnParameters": 62,
+                  "id": 67,
+                  "nodeType": "Return",
+                  "src": "640:25:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 69,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getMyGame",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 59,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "597:2:0"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 62,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 61,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 69,
+                  "src": "622:6:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint16",
+                    "typeString": "uint16"
+                  },
+                  "typeName": {
+                    "id": 60,
+                    "name": "uint16",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "622:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint16",
+                      "typeString": "uint16"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "621:8:0"
+            },
+            "scope": 111,
+            "src": "579:93:0",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 99,
+              "nodeType": "Block",
+              "src": "732:133:0",
+              "statements": [
+                {
+                  "assignments": [
+                    75
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 75,
+                      "name": "refund",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 100,
+                      "src": "742:11:0",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 74,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "742:4:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 83,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 81,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 76,
+                            "name": "myGame",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 5,
+                            "src": "757:6:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_address_$_t_uint16_$",
+                              "typeString": "mapping(address => uint16)"
+                            }
+                          },
+                          "id": 79,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 77,
+                              "name": "msg",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 126,
+                              "src": "764:3:0",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_message",
+                                "typeString": "msg"
+                              }
+                            },
+                            "id": 78,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "sender",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "764:10:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "757:18:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint16",
+                            "typeString": "uint16"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "*",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "id": 80,
+                          "name": "_gamePrice",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 71,
+                          "src": "778:10:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "src": "757:31:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "id": 82,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "756:33:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "742:47:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 89,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 84,
+                        "name": "myGame",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 5,
+                        "src": "799:6:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_uint16_$",
+                          "typeString": "mapping(address => uint16)"
+                        }
+                      },
+                      "id": 87,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 85,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 126,
+                          "src": "806:3:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 86,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "806:10:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "799:18:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint16",
+                        "typeString": "uint16"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "30",
+                      "id": 88,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "820:1:0",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "799:22:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint16",
+                      "typeString": "uint16"
+                    }
+                  },
+                  "id": 90,
+                  "nodeType": "ExpressionStatement",
+                  "src": "799:22:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 96,
+                        "name": "refund",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 75,
+                        "src": "851:6:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 91,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 126,
+                          "src": "831:3:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 94,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "831:10:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "id": 95,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "transfer",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "831:19:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_transfer_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 97,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "831:27:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 98,
+                  "nodeType": "ExpressionStatement",
+                  "src": "831:27:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 100,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "sellMyGame",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 72,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 71,
+                  "name": "_gamePrice",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 100,
+                  "src": "698:15:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 70,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "698:4:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "697:17:0"
+            },
+            "payable": true,
+            "returnParameters": {
+              "id": 73,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "732:0:0"
+            },
+            "scope": 111,
+            "src": "678:187:0",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 109,
+              "nodeType": "Block",
+              "src": "909:37:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 107,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "++",
+                    "prefix": false,
+                    "src": "919:20:0",
+                    "subExpression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 103,
+                        "name": "myGame",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 5,
+                        "src": "919:6:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_uint16_$",
+                          "typeString": "mapping(address => uint16)"
+                        }
+                      },
+                      "id": 106,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 104,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 126,
+                          "src": "926:3:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 105,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "926:10:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "919:18:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint16",
+                        "typeString": "uint16"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint16",
+                      "typeString": "uint16"
+                    }
+                  },
+                  "id": 108,
+                  "nodeType": "ExpressionStatement",
+                  "src": "919:20:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 110,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1669,30 +2739,30 @@
             "name": "investGame",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 58,
+              "id": 101,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "487:2:0"
+              "src": "889:2:0"
             },
             "payable": true,
             "returnParameters": {
-              "id": 59,
+              "id": 102,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "507:0:0"
+              "src": "909:0:0"
             },
-            "scope": 68,
-            "src": "468:76:0",
+            "scope": 111,
+            "src": "870:76:0",
             "stateMutability": "payable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 69,
-        "src": "35:511:0"
+        "scope": 112,
+        "src": "35:914:0"
       }
     ],
-    "src": "0:546:0"
+    "src": "0:949:0"
   },
   "compiler": {
     "name": "solc",
@@ -1702,10 +2772,10 @@
     "1001": {
       "events": {},
       "links": {},
-      "address": "0x8376e0385a56b7e2316e64f85c0b162778a003fd",
-      "transactionHash": "0x500acef0bc6ebdbe96e344b2b55e6dea043002832cafa0f87b6ee1ab2917da7c"
+      "address": "0xb79d3c59a52ed5772259919c89ec5c82739e8f5f",
+      "transactionHash": "0x2e55b1a1bfcbc785c10ced57d415c673988fc232721f5fe63dfe82d6f7476d98"
     }
   },
   "schemaVersion": "2.0.2",
-  "updatedAt": "2020-09-17T11:47:04.225Z"
+  "updatedAt": "2020-09-19T05:21:42.174Z"
 }
