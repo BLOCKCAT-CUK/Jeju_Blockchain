@@ -40,6 +40,12 @@ https://www.iconfinder.com/Makoto_msk */}
             MY CART
           </ButtonContainer>
         </Link>
+        <Link to="/login"> 
+          <ButtonContainer>
+              <i className="fas fa-user" />
+            
+          </ButtonContainer>
+        </Link>
       </Nav>
     );
   }

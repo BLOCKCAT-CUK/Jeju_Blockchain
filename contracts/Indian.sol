@@ -3,6 +3,7 @@ pragma solidity >=0.4.24 <=0.5.6;
 contract Indian {
     mapping (address => uint16) myGame;
     address public owner;
+    address public receiver;
 
     constructor() public {
         owner = msg.sender;
@@ -17,9 +18,10 @@ contract Indian {
         require(msg.sender == owner);
     }
 
-    function buyGame(uint _gamePrice) payable external {
+    function buyGame() payable external {
         //require(getBalance() >= _gamePrice);
-        msg.sender.transfer(_gamePrice);
+        //receiver = _receiver;
+        //msg.sender.transfer(_gamePrice);
         myGame[msg.sender]++;
         //return true;
     }

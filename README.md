@@ -20,4 +20,4 @@ Indian is a Game Distribution Platform DApp such as Steam, Origin etc
 
 ## Indian's Architecture
 
-![Alt text](client/public/img/structure.JPG)
+![Alt text](client/public/img/structure.png)

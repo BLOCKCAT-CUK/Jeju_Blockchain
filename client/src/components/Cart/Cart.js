@@ -12,9 +12,9 @@ export default class Store extends Component {
       <section>
         <ProductConsumer>
           {value => {
-            console.log(value);
+            //console.log(value);
             const { cart } = value;
-            console.log(this.props);
+            //console.log(this.props);
             if (cart.length > 0) {
               return (
                 <React.Fragment>

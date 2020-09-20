@@ -9,6 +9,7 @@ import Cart from "./components/Cart";
 import Modal from "./components/Modal";
 import Details from "./components/Details";
 import Game from "./components/Game";
+import Login from "./components/Login";
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
           <Route path="/details" component={Details} />
           <Route path="/game" component={Game} />
           <Route path="/cart" component={Cart} />
+          <Route path="/login" component={Login} />
           <Route component={Default} />
         </Switch>
         <Modal />

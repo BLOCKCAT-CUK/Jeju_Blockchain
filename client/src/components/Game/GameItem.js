@@ -17,7 +17,6 @@ export default class GameItem extends Component {
   render() {
     const { id, title, img, price } = this.props.item;
     const { removeItem } = this.props.value;
-    console.log(this.props.item);
     return (
       <div className="row my-1 text-capitalize text-center">
         <div className="col-10 mx-auto col-lg-2">

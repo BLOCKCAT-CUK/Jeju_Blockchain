@@ -7,7 +7,7 @@ import axios from "axios";
 const ProductContext = React.createContext();
 
 const config = {
-  rpcURL: 'https://api.baobab.klaytn.net:8651/'
+  rpcURL: 'https://kaikas.baobab.klaytn.net:8651/'
 }
 
 const cav = new Caver(config.rpcURL);
@@ -30,27 +30,29 @@ class ProductProvider extends Component {
   componentDidMount = async () => {
     this.setProducts();
     this.getAllAccounts();
-    console.log(this.state);
     try {
       console.log(cav);
-      const privateKey = '0xb3d98ee179ab3d115f24ad25b8237bfe616c3306b53029272bd410e4eac23c40';
-      const walletInstance = cav.klay.accounts.privateKeyToAccount(privateKey);
-      const accounts = await cav.klay.accounts.wallet.add(walletInstance);
+      const privateKey = '0xec20ac7d5bb229da13649b2811ed97436995b0c4ac8cd3afc3f21ad32ca15e9d';
+      
+      const accounts = await cav.wallet.add(cav.wallet.keyring.createFromPrivateKey(privateKey));
+      
+      console.log(accounts);
+      // const walletInstance = cav.klay.accounts.privateKeyToAccount(privateKey);
+      // const accounts = await cav.klay.accounts.wallet.add(walletInstance);
       const networkId = await cav.klay.net.getId();
       const deployedNetwork = IndianContract.networks[networkId];
       const instance = new cav.klay.Contract(
         IndianContract.abi,
         deployedNetwork && deployedNetwork.address,
       );
-      this.setState({ cav, accounts: accounts.address, contract: instance });
-      console.log(this.state);
-
+      this.setState({ cav, accounts: accounts._address, contract: instance });
     } catch (error) {
       alert(
         `Failed to load Caver, accounts, or contract. Check console for details.`,
       );
       console.error(error);
     }
+    console.log(this.state);
   }
   setProducts = () => {
     let products = [];
@@ -64,7 +66,7 @@ class ProductProvider extends Component {
   };
 
   getAllAccounts = async () => {
-    let toaccount = null;
+    //let toaccount = null;
     const option = {
       method: 'GET',
       url: 'http://localhost:5000/',
@@ -78,7 +80,7 @@ class ProductProvider extends Component {
       .then(async function (response) {
         //console.log(JSON.stringify(response.data.items[0]));
         const account = await response.data.items[0].address;
-        console.log(account);
+        //console.log(account);
         self.setState({ toaccount: account })
       })
       .catch(function (error) {
@@ -183,22 +185,37 @@ class ProductProvider extends Component {
       }
     );
   };
-  buyGame = async () => {
+  buyGame = () => {
     if (!this.state.contract) {
       alert('No Wallet Address!');
     }
-    console.log(this.state.accounts);
+    //const privateKey = '0xc71a9a2eadd3583106ebe3b96f7de8891834ef5cea44b0b80d0603381fae523a';
+    //console.log(this.state.accounts);
+    //const updateaccount = this.state.cav.wallet.add(this.state.cav.wallet.keyring.createFromKlaytnWalletKey("0x7c8c0815ebe402e5ef5669bb89c55efdb4e751d70d1a76036334ede8e70040270x000xc40869fd566129883fa77f4f4b1d6effaca7ecda"));
+    //console.log(updateaccount._address)
     const amount = this.state.cav.utils.toPeb(this.state.cartTotal.toString(), 'KLAY');
-    const vt = new this.state.cav.transaction.valueTransfer({
+    const nownonce = this.state.cav.utils.toHex(this.state.cav.rpc.klay.getTransactionCount(this.state.accounts, 'pending'));
+    console.log(nownonce);
+    const vt = new cav.transaction.valueTransfer({ 
       from: this.state.accounts,
       to: this.state.toaccount,
       value: amount,
-      gas: 90000,
-      nonce: this.state.cav.rpc.klay.getTransactionCount(this.state.accounts, 'pending')
+      gas: 25000,
+      nonce: this.state.cav.utils.toHex(this.state.cav.rpc.klay.getTransactionCount(this.state.accounts, 'pending'))
     })
     console.log(vt);
-    const sendTestKlayRecipt = await this.state.cav.rpc.klay.sendTransaction(vt);
+    //console.log(await this.state.cav.wallet.sign(this.state.accounts, vt));
+    //console.log(this.state.cav.rpc.klay.getBlockReceipts('0x54492eeb3b9b145e35f3f86a26365f9030f4fed55990de820a223a298b3a0939'))
+    const sendSign = this.state.cav.wallet.sign(this.state.accounts, vt);
+    console.log(sendSign);
+    const sendTestKlayRecipt = this.state.cav.rpc.klay.sendRawTransaction(vt);
     console.log(sendTestKlayRecipt);
+    // this.state.contract.methods.buyGame().send({
+    //   from: this.state.accounts,
+    //   value: amount,
+    //   gas: 25000
+    // })
+    
   };
 
   investGame = () => {
